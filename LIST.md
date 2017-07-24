@@ -10,4 +10,5 @@
     psm7177
 
 0 - 플로팅 위젯-17/07/09 - psm7177
+D - 메인 액티비티 메뉴 - 17/07/25 - psm7177
  \ No newline at end of file
