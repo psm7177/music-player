@@ -16,8 +16,13 @@ class MusicManager
 
     static ArrayList <Music_info> MusicList = new ArrayList<Music_info>();
     static ArrayList<String> extension = new ArrayList<String>();
+    MusicList adpater;
     MusicManager()
     {
+    }
+    MusicManager(MusicList adapter)
+    {
+        this.adpater = adapter;
         extension.add("mp3");
         extension.add("flac");
         FileSearch(MusicList, Environment.getExternalStorageDirectory().getAbsolutePath(),"");
@@ -48,5 +53,9 @@ class MusicManager
         }
 
         return;
+    }
+    ArrayList<Music_info> ResturnList()
+    {
+        return MusicList;
     }
 }

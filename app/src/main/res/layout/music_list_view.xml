@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="360dp"
+    android:layout_height="70dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:alpha="33"
+    >
+    <com.example.psm71.musicplayer.CircleImageView
+        android:layout_height="60dp"
+        android:layout_width="60dp"
+        android:src="@mipmap/ic_launcher"
+        android:id="@+id/music_cover"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#FFFFFF"
+        android:layout_margin="5dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="5dp">
+
+        <TextView
+            android:id="@+id/music_title"
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:layout_marginTop="10dp"
+            android:textSize="16dp"
+            android:text="제목" />
+
+        <TextView
+            android:id="@+id/music_artist"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:textSize="16dp"
+            android:text="아티스트" />
+    </LinearLayout>
+
+</LinearLayout>

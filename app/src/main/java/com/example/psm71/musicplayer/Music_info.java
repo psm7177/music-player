@@ -10,12 +10,19 @@ public class Music_info {
     // album cover image
     Music_info()
     {
-
+        this(null,null,null,null,null);
     }
     Music_info(String path, String name)
     {
+        this(path, name, null, null, null);
+    }
+    Music_info(String path, String name, String singer, String lyricist, String composer)
+    {
         this.path = path;
         this.name = name;
+        this.singer = singer;
+        this.lyricist = lyricist;
+        this.composer = composer;
     }
 
 
