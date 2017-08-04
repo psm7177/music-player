@@ -1,4 +1,4 @@
-package com.example.psm71.musicplayer;
+package com.example.psm71.musicplayer.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -21,7 +21,9 @@ import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-public class CircleImageView extends ImageView {
+import com.example.psm71.musicplayer.R;
+
+public class CircleImageView extends android.support.v7.widget.AppCompatImageView {
 
     private static final ScaleType SCALE_TYPE = ScaleType.CENTER_CROP;
 
