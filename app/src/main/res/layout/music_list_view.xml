@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:alpha="33"
     >
-    <com.example.psm71.musicplayer.CircleImageView
+    <com.example.psm71.musicplayer.widget.CircleImageView
         android:layout_height="60dp"
         android:layout_width="60dp"
         android:src="@mipmap/ic_launcher"
