@@ -27,6 +27,7 @@ class MusicManager
         extension.add("flac");
         FileSearch(MusicList, Environment.getExternalStorageDirectory().getAbsolutePath(),"");
         FileSearch(MusicList, "/storage/external_SD","");
+        
     }
     void FileSearch(ArrayList<Music_info> MusicList, String path, String directory)
     {
