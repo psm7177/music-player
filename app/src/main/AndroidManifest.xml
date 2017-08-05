@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <service
-            android:name=".MusicPlay"
+            android:name=".Music.MusicPlay"
             android:enabled="true"
             android:exported="true"></service>
     </application>

@@ -1,7 +1,6 @@
 package com.example.psm71.musicplayer.activity;
 
 import android.app.Activity;
-import android.app.Service;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,8 +8,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.psm71.musicplayer.Adapter;
-import com.example.psm71.musicplayer.MusicManager;
-import com.example.psm71.musicplayer.MusicPlay;
+import com.example.psm71.musicplayer.Music.MusicManager;
+import com.example.psm71.musicplayer.Music.MusicPlay;
 import com.example.psm71.musicplayer.R;
 import com.example.psm71.musicplayer.model.Music_info;
 

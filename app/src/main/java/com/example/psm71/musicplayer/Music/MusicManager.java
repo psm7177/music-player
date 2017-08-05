@@ -1,4 +1,4 @@
-package com.example.psm71.musicplayer;
+package com.example.psm71.musicplayer.Music;
 
 import android.content.ContentUris;
 import android.content.Context;

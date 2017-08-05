@@ -1,4 +1,4 @@
-package com.example.psm71.musicplayer;
+package com.example.psm71.musicplayer.Music;
 
 import android.app.Service;
 import android.content.Intent;
@@ -39,6 +39,8 @@ public class MusicPlay extends Service {
     }
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
+        music.stop();
         android.util.Log.i("테스트", "onStartCommand() 호출");
         MusicDTO = (Music_info) intent.getSerializableExtra("Music");
         try {
@@ -46,8 +48,9 @@ public class MusicPlay extends Service {
             File mp3 = new File(MusicDTO.getPath());
             if(mp3.exists()){
                 Log.i("exist: " ,"true");
-            music.setDataSource(MusicDTO.getPath());
-            music.prepare();
+                music.reset();
+                music.setDataSource(MusicDTO.getPath());
+                music.prepare();
             }
         } catch (IOException e) {
             e.printStackTrace();
