@@ -1,4 +1,4 @@
-package com.example.psm71.musicplayer;
+package com.example.psm71.musicplayer.adapter;
 
 import android.content.Context;
 import android.graphics.Paint;
@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.psm71.musicplayer.R;
 import com.example.psm71.musicplayer.model.Music_info;
 import com.example.psm71.musicplayer.widget.CircleImageView;
 
@@ -18,10 +19,10 @@ import java.util.ArrayList;
  * Created by psm71 on 2017-08-03.
  */
 
-public class Adapter extends BaseAdapter {
+public class MusicAdapter extends BaseAdapter {
     private ArrayList<Music_info> MusicList;
 
-    public Adapter(ArrayList<Music_info> list) {
+    public MusicAdapter(ArrayList<Music_info> list) {
         MusicList = new ArrayList<>(list);
     }
 
@@ -48,7 +49,7 @@ public class Adapter extends BaseAdapter {
         final Context context = parent.getContext();
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.music_list_view, parent, false);
+            convertView = inflater.inflate(R.layout.music_list_view_box, parent, false);
         }
         CircleImageView AlumbView = (CircleImageView) convertView.findViewById(R.id.music_cover);
         TextView titleView = (TextView) convertView.findViewById(R.id.music_title);
