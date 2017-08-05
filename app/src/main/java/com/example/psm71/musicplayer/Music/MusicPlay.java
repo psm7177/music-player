@@ -39,9 +39,10 @@ public class MusicPlay extends Service {
     }
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-
+        if(intent !=null){
         music.stop();
         android.util.Log.i("테스트", "onStartCommand() 호출");
+        MusicDTO = new Music_info();
         MusicDTO = (Music_info) intent.getSerializableExtra("Music");
         try {
             Log.e("path: ",MusicDTO.getPath());
@@ -55,7 +56,9 @@ public class MusicPlay extends Service {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         music.start();
+        }
         return super.onStartCommand(intent, flags, startId);
     }
 }

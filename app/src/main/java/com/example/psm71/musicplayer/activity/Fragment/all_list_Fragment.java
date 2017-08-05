@@ -16,6 +16,7 @@ import com.example.psm71.musicplayer.Music.MusicControl;
 import com.example.psm71.musicplayer.Music.MusicManager;
 import com.example.psm71.musicplayer.Music.MusicPlay;
 import com.example.psm71.musicplayer.R;
+import com.example.psm71.musicplayer.activity.MainActivity;
 import com.example.psm71.musicplayer.adapter.MusicAdapter;
 import com.example.psm71.musicplayer.model.Music_info;
 
@@ -28,10 +29,11 @@ import java.util.ArrayList;
 public class all_list_Fragment extends  android.support.v4.app.Fragment{
 
     ArrayList<Music_info> musiclist;
-    MusicControl control;
+    MusicControl listcontrol;
     MusicAdapter adapter;
     ListView listView;
     Intent Service;
+    MusicControl control;
 
     public all_list_Fragment()
     {
@@ -48,19 +50,19 @@ public class all_list_Fragment extends  android.support.v4.app.Fragment{
 
     }
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState)
     {
         RelativeLayout layout = (RelativeLayout) inflater.inflate(R.layout.music_all_list,container,false);
         listView = (ListView) layout.findViewById(R.id.all_list);
         adapter = new MusicAdapter(musiclist);
         listView.setAdapter(adapter);
+        listcontrol = MainActivity.control;
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-                Service.putExtra("Music", musiclist.get(position));
-                getActivity().startService(Service);
+                listcontrol.Play(position);
             }
         });
         return layout;

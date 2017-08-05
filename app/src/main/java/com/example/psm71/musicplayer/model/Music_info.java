@@ -12,6 +12,9 @@ public class Music_info implements Serializable{
     private String album;
 
     // album cover image
+    public Music_info()
+    {
+    }
 
     public Music_info(String path, String name, String singer, String album)
     {

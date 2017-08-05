@@ -25,10 +25,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     DrawerLayout layout;
-
     Intent Service;
-
-
+    public static MusicControl control;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,11 +35,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPager pagerView =(ViewPager) findViewById(R.id.viewpaper);
         pagerView.setAdapter(new pagerAdapter(getSupportFragmentManager()));
         pagerView.setCurrentItem(0);
-        Service = new Intent(this, MusicPlay.class);
-
-
-
-
+        control = new MusicControl(getApplicationContext());
     }
 
 
