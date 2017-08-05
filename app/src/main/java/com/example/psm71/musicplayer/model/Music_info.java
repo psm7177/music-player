@@ -1,7 +1,11 @@
 package com.example.psm71.musicplayer.model;
 
 
-public class Music_info {
+import android.net.Uri;
+
+import java.io.Serializable;
+
+public class Music_info implements Serializable{
     private String path;
     private String name;
     private String singer;
