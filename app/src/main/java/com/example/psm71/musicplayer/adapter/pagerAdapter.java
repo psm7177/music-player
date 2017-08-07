@@ -4,10 +4,6 @@ import android.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.example.psm71.musicplayer.activity.Fragment.MusicListFragment;
-import com.example.psm71.musicplayer.activity.Fragment.album_list_Fragment;
-import com.example.psm71.musicplayer.activity.Fragment.all_list_Fragment;
-import com.example.psm71.musicplayer.activity.Fragment.artist_list_Fragment;
-import com.example.psm71.musicplayer.activity.Fragment.playlist_list_Fragment;
 
 /**
  * Created by psm71 on 2017-08-05.
