@@ -1,7 +1,9 @@
 package com.example.psm71.musicplayer.adapter;
 
+import android.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.example.psm71.musicplayer.activity.Fragment.MusicListFragment;
 import com.example.psm71.musicplayer.activity.Fragment.album_list_Fragment;
 import com.example.psm71.musicplayer.activity.Fragment.all_list_Fragment;
 import com.example.psm71.musicplayer.activity.Fragment.artist_list_Fragment;
@@ -20,19 +22,9 @@ public class pagerAdapter extends FragmentStatePagerAdapter
     @Override
     public android.support.v4.app.Fragment getItem(int position)
     {
-        switch(position)
-        {
-            case 0:
-                return new all_list_Fragment();
-            case 1:
-                return new artist_list_Fragment();
-            case 2:
-                return new album_list_Fragment();
-            case 3:
-                return new playlist_list_Fragment();
-            default:
-                return null;
-        }
+        MusicListFragment fragment= new MusicListFragment();
+        fragment.setfragment(position);
+        return fragment;
     }
     @Override
     public int getCount()
