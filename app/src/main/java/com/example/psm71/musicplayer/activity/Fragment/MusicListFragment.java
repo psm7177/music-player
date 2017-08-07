@@ -1,13 +1,10 @@
 package com.example.psm71.musicplayer.activity.Fragment;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -23,19 +20,21 @@ import com.example.psm71.musicplayer.model.Music_info;
 import java.util.ArrayList;
 
 /**
- * Created by psm71 on 2017-08-05.
+ * Created by psm71 on 2017-08-07.
  */
 
-public class all_list_Fragment extends  android.support.v4.app.Fragment{
-
-    ArrayList<Music_info> musiclist;
+public class MusicListFragment extends android.support.v4.app.Fragment
+{
+    ArrayList<ArrayList<Music_info>> musiclist;
     MusicControl listcontrol;
     MusicAdapter adapter;
     ListView listView;
     Intent Service;
+    int max = 4;
+    int position;
     MusicControl control;
 
-    public all_list_Fragment()
+    public MusicListFragment()
     {
 
     }
@@ -45,7 +44,13 @@ public class all_list_Fragment extends  android.support.v4.app.Fragment{
         super.onCreate(savedInstanceState);
         final MusicManager manager = new MusicManager(getContext());
         manager.FileSearch();
-        musiclist = manager.getList();
+        musiclist = new ArrayList<ArrayList<Music_info>>();
+
+        musiclist.add(manager.getList());
+        musiclist.add(new ArrayList<Music_info>());
+        musiclist.add(new ArrayList<Music_info>());
+        musiclist.add(new ArrayList<Music_info>());
+
         Service = new Intent(getContext(), MusicPlay.class);
 
     }
@@ -54,7 +59,7 @@ public class all_list_Fragment extends  android.support.v4.app.Fragment{
     {
         RelativeLayout layout = (RelativeLayout) inflater.inflate(R.layout.music_all_list,container,false);
         listView = (ListView) layout.findViewById(R.id.all_list);
-        adapter = new MusicAdapter(musiclist);
+        adapter = new MusicAdapter(musiclist.get(position));
         listView.setAdapter(adapter);
         listcontrol = MainActivity.control;
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -67,5 +72,8 @@ public class all_list_Fragment extends  android.support.v4.app.Fragment{
         });
         return layout;
     }
-
+    public void setfragment(int position)
+    {
+        this.position = position;
+    }
 }
