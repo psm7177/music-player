@@ -11,6 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.TableLayout;
 
 import com.example.psm71.musicplayer.Music.MusicControl;
 import com.example.psm71.musicplayer.Music.MusicManager;
@@ -27,15 +28,40 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout layout;
     Intent Service;
     public static MusicControl control;
+    TabLayout tabLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ViewPager pagerView =(ViewPager) findViewById(R.id.viewpaper);
-        pagerView.setAdapter(new pagerAdapter(getSupportFragmentManager()));
+        final ViewPager pagerView =(ViewPager) findViewById(R.id.viewpaper);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        final MusicManager manager = new MusicManager(getApplicationContext());
+        manager.FileSearch();
+        pagerAdapter adapter = new pagerAdapter(getSupportFragmentManager(),manager);
+        pagerView.setAdapter(adapter);
         pagerView.setCurrentItem(0);
-        control = new MusicControl(getApplicationContext());
+        pagerView.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        tabLayout.setupWithViewPager(pagerView);
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                pagerView.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
 

@@ -18,11 +18,10 @@ public class MusicControl
                 //One: 한곡
                 //All: 전체
                 //AllLoop: 전체 반복
-    MusicManager manger;
     ArrayList<Music_info> musiclist;
     Intent Service;
     Context context;
-    public MusicControl(Context context)
+    public MusicControl(Context context, MusicManager manger)
     {
         this.context = context;
         manger = new MusicManager(context);
