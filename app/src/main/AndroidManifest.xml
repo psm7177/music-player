@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.psm71.musicplayer">
 
+<<<<<<< HEAD
+=======
+    <uses-permission android:name="android.permission.INTERNET"/>
+>>>>>>> dec79f5fb3921121088567d0f43c2cf3cb7eedda
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -19,10 +23,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <service
             android:name=".Music.MusicPlay"
             android:enabled="true"
             android:exported="false"></service>
+=======
+
+        <activity android:name=".activity.PlayerControllerActivity"/>
+
+        <service
+            android:name=".Music.MusicService"
+            android:enabled="true"
+            android:exported="true"/>
+
+        <receiver
+            android:name=".receiver.MediaButtonIntentReceiver"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
+
+>>>>>>> dec79f5fb3921121088567d0f43c2cf3cb7eedda
     </application>
 
 </manifest>
