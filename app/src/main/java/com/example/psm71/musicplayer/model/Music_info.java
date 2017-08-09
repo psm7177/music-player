@@ -1,20 +1,29 @@
 package com.example.psm71.musicplayer.model;
 
 
-public class Music_info {
+import java.io.Serializable;
+import android.net.Uri;
+
+import java.io.Serializable;
+
+public class Music_info implements Serializable {
     private String path;
     private String name;
-    private String singer;
+    private String artist;
     private String album;
+    private String album_img;
+    private int duration;
 
     // album cover image
 
-    public Music_info(String path, String name, String singer, String album)
+    public Music_info(String path, String name, String artist, String album, String album_img, int duration)
     {
         this.path = path;
         this.name = name;
-        this.singer = singer;
+        this.artist = artist;
         this.album = album;
+        this.album_img = album_img;
+        this.duration = duration;
     }
 
     public String getPath() {
@@ -33,12 +42,12 @@ public class Music_info {
         this.name = name;
     }
 
-    public String getSinger() {
-        return singer;
+    public String getArtist() {
+        return artist;
     }
 
-    public void setSinger(String singer) {
-        this.singer = singer;
+    public void setArtist(String artist) {
+        this.artist = artist;
     }
 
     public String getAlbum() {
@@ -47,5 +56,21 @@ public class Music_info {
 
     public void setAlbum(String album) {
         this.album = album;
+    }
+
+    public void setAlbum_img(String album_img) {
+        this.album_img = album_img;
+    }
+
+    public String getAlbum_img() {
+        return album_img;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 }
