@@ -2,10 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.psm71.musicplayer">
 
-<<<<<<< HEAD
-=======
-    <uses-permission android:name="android.permission.INTERNET"/>
->>>>>>> sky123
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -23,29 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
         <service
             android:name=".Music.MusicPlay"
             android:enabled="true"
             android:exported="false"></service>
-=======
-
-        <activity android:name=".activity.PlayerControllerActivity"/>
-
-        <service
-            android:name=".Music.MusicService"
-            android:enabled="true"
-            android:exported="true"/>
-
-        <receiver
-            android:name=".receiver.MediaButtonIntentReceiver"
-            android:enabled="false">
-            <intent-filter>
-                <action android:name="android.intent.action.MEDIA_BUTTON" />
-            </intent-filter>
-        </receiver>
-
->>>>>>> sky123
     </application>
 
 </manifest>
