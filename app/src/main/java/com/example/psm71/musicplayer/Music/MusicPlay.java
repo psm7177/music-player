@@ -1,4 +1,4 @@
-package com.example.psm71.musicplayer.Music;
+/*package com.example.psm71.musicplayer.Music;
 
 import android.app.Service;
 import android.content.Intent;
@@ -61,4 +61,4 @@ public class MusicPlay extends Service {
         }
         return super.onStartCommand(intent, flags, startId);
     }
-}
+}*/

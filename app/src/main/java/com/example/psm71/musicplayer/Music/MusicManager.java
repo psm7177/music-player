@@ -57,10 +57,7 @@ public class MusicManager {
         String[] projection = {
                 MediaStore.Audio.Media._ID,
                 MediaStore.Audio.Media.DATA,
-<<<<<<< HEAD:app/src/main/java/com/example/psm71/musicplayer/Music/MusicManager.java
-=======
                 MediaStore.Audio.Media.ALBUM,
->>>>>>> dec79f5fb3921121088567d0f43c2cf3cb7eedda:app/src/main/java/com/example/psm71/musicplayer/MusicManager.java
                 MediaStore.Audio.Media.ALBUM_ID,
                 MediaStore.Audio.Media.TITLE,
                 MediaStore.Audio.Media.ARTIST,
@@ -71,19 +68,17 @@ public class MusicManager {
                 projection, null, null, null);
 
         while (cursor.moveToNext()) {
-<<<<<<< HEAD:app/src/main/java/com/example/psm71/musicplayer/Music/MusicManager.java
-            String Music_ID = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media._ID));
-            int Album_ID = cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM_ID));
+            //String Music_ID = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media._ID));
+            //int Album_ID = cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM_ID));
             //String path = Uri.withAppendedPath(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, "" + Music_ID).toString();
-            String path = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA));
-=======
+            //String path = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA));
+
             int Music_ID = cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.Media._ID));
             //String Music_ID = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media._ID));
             int Album_ID = cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM_ID));
             int duration = cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.Media.DURATION));
 
             String path = Uri.withAppendedPath(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, "" + Music_ID).toString();
->>>>>>> dec79f5fb3921121088567d0f43c2cf3cb7eedda:app/src/main/java/com/example/psm71/musicplayer/MusicManager.java
             String title = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE));
             String album = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM));
             String album_img = ContentUris.withAppendedId(Uri.parse("content://media/external/audio/albumart"), Album_ID).toString();

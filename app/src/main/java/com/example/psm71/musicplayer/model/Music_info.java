@@ -1,19 +1,13 @@
 package com.example.psm71.musicplayer.model;
 
 
-<<<<<<< HEAD
-=======
 import java.io.Serializable;
->>>>>>> dec79f5fb3921121088567d0f43c2cf3cb7eedda
 import android.net.Uri;
 
 import java.io.Serializable;
 
-<<<<<<< HEAD
-public class Music_info implements Serializable{
-=======
 public class Music_info implements Serializable {
->>>>>>> dec79f5fb3921121088567d0f43c2cf3cb7eedda
+
     private String path;
     private String name;
     private String artist;

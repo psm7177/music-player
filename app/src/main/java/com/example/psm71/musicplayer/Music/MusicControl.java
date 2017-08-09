@@ -4,7 +4,9 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 
+import com.example.psm71.musicplayer.activity.PlayerControllerActivity;
 import com.example.psm71.musicplayer.model.Music_info;
+import com.example.psm71.musicplayer.utils.Config;
 
 import java.util.ArrayList;
 
@@ -19,15 +21,14 @@ public class MusicControl
                 //All: 전체
                 //AllLoop: 전체 반복
     ArrayList<Music_info> musiclist;
-    Intent Service;
     Context context;
     MusicManager manager;
     public MusicControl(Context context)
     {
         this.context = context;
+
         manager = new MusicManager(context);
         manager.FileSearch();
-        Service = new Intent(context,MusicPlay.class);
         musiclist = manager.getList();
     }
     void setMode()
@@ -36,8 +37,9 @@ public class MusicControl
     }
     public void Play(int position)
     {
-        Service.putExtra("Music", musiclist.get(position));
-        context.startService(Service);
+        Intent intent = new Intent(context, PlayerControllerActivity.class);
+        intent.putExtra(Config.AllMusicList, musiclist);
+        intent.putExtra(Config.startPosition, position);
     }
     void Stop()
     {

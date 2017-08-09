@@ -1,45 +1,17 @@
 package com.example.psm71.musicplayer.activity;
 
-<<<<<<< HEAD
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.TableLayout;
-=======
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
->>>>>>> dec79f5fb3921121088567d0f43c2cf3cb7eedda
-
 import com.example.psm71.musicplayer.Music.MusicControl;
-import com.example.psm71.musicplayer.Music.MusicManager;
-import com.example.psm71.musicplayer.Music.MusicPlay;
 import com.example.psm71.musicplayer.R;
-<<<<<<< HEAD
 import com.example.psm71.musicplayer.adapter.pagerAdapter;
-import com.example.psm71.musicplayer.model.Music_info;
-import com.example.psm71.musicplayer.activity.Fragment.*;
-=======
-import com.example.psm71.musicplayer.model.Music_info;
-import com.example.psm71.musicplayer.utils.Config;
-
-import java.util.ArrayList;
->>>>>>> dec79f5fb3921121088567d0f43c2cf3cb7eedda
-
 import java.util.ArrayList;
 
-<<<<<<< HEAD
+
 public class MainActivity extends AppCompatActivity {
 
     DrawerLayout layout;
@@ -47,21 +19,15 @@ public class MainActivity extends AppCompatActivity {
     public static MusicControl control;
     TabLayout tabLayout;
     ArrayList<String> pagetitle;
-=======
-    ListView listView;
-    Adapter adapter;
-    ArrayList<Music_info> musiclist;
-
->>>>>>> dec79f5fb3921121088567d0f43c2cf3cb7eedda
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-<<<<<<< HEAD
         final ViewPager pagerView =(ViewPager) findViewById(R.id.viewpaper);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+
         final MusicControl control = new MusicControl(getApplicationContext());
 
         tabLayout.addTab(tabLayout.newTab().setText("노래"));
@@ -81,27 +47,6 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-=======
-        final MusicManager manager = new MusicManager(this);
-        manager.FileSearch();
-
-        listView = findViewById(R.id.music_listview);
-        musiclist = manager.getList();
-        adapter = new Adapter(musiclist);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(parent.getContext(), PlayerControllerActivity.class);
-                intent.putExtra(Config.AllMusicList, musiclist);
-                intent.putExtra(Config.startPosition, position);
-                startActivity(intent);
-
-            }
-        });
->>>>>>> dec79f5fb3921121088567d0f43c2cf3cb7eedda
-
             }
 
             @Override

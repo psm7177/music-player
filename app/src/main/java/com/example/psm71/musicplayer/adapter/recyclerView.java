@@ -45,7 +45,7 @@ public class recyclerView extends RecyclerView.Adapter<recyclerView.ViewHolder>{
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         Music_info item = albumList.get(position);
         viewHolder.title.setText(item.getName());
-        viewHolder.artist.setText(item.getSinger());
+        viewHolder.artist.setText(item.getArtist());
         Glide.with(viewHolder.view.getContext()).load(item.getAlbum()).into(viewHolder.img);
         final int Position = position;
         viewHolder.view.setOnClickListener(new View.OnClickListener() {
