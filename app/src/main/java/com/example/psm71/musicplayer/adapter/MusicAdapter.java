@@ -51,16 +51,20 @@ public class MusicAdapter extends BaseAdapter {
         final Context context = parent.getContext();
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+<<<<<<< HEAD:app/src/main/java/com/example/psm71/musicplayer/adapter/MusicAdapter.java
             convertView = inflater.inflate(R.layout.music_list_view_box, parent, false);
+=======
+            convertView = inflater.inflate(R.layout.list_itemview, parent, false);
+>>>>>>> sky123:app/src/main/java/com/example/psm71/musicplayer/Adapter.java
         }
         CircleImageView AlumbView = (CircleImageView) convertView.findViewById(R.id.music_cover);
         TextView titleView = (TextView) convertView.findViewById(R.id.music_title);
         TextView artistView = (TextView) convertView.findViewById(R.id.music_artist);
 
         titleView.setPaintFlags(titleView.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
-        titleView.setText(data.getName());
-        artistView.setText(data.getSinger());
-        Glide.with(context).load(data.getAlbum()).into(AlumbView);
+        titleView.setText("제목 " + data.getName());
+        artistView.setText("아티스트 " + data.getArtist());
+        Glide.with(context).load(data.getAlbum_img()).into(AlumbView);
 
         return convertView;
     }
