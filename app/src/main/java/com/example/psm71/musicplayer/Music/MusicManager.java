@@ -66,10 +66,12 @@ public class MusicManager {
                 projection, null, null, null);
 
         while (cursor.moveToNext()) {
-            String Music_ID = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media._ID));
+            int Music_ID = cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.Media._ID));
+            //String Music_ID = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media._ID));
             int Album_ID = cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM_ID));
-            //String path = Uri.withAppendedPath(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, "" + Music_ID).toString();
-            String path = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA));
+            int duration = cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.Media.DURATION));
+
+            String path = Uri.withAppendedPath(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, "" + Music_ID).toString();
             String title = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE));
             String album_url = ContentUris.withAppendedId(Uri.parse("content://media/external/audio/albumart"), Album_ID).toString();
             String singer = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST));
