@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:alpha="33"
     android:orientation="vertical"
+    android:background="#FFFFFF"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,13 +14,12 @@
 
         <com.example.psm71.musicplayer.widget.CircleImageView
             android:id="@+id/music_cover"
-            android:layout_width="90dp"
+            android:layout_width="match_parent"
             android:layout_height="90dp"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="15dp"
             android:src="@mipmap/ic_launcher"
-            app:civ_border_color="#FFFFFF"
-            app:civ_border_width="2dp" />
+            app:civ_border_color="#EEEEEE"
+            app:civ_border_width="3dp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,6 +35,7 @@
             android:singleLine="true"
             android:ellipsize="end"
             android:textSize="16dp"
+            android:textColor="#000000"
             android:text="제목" />
 
         <TextView

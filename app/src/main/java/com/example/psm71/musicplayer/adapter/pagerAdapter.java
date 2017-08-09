@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.content.Context;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.example.psm71.musicplayer.Music.MusicControl;
 import com.example.psm71.musicplayer.Music.MusicManager;
 import com.example.psm71.musicplayer.activity.Fragment.MusicListFragment;
 import com.example.psm71.musicplayer.model.Music_info;
@@ -16,26 +17,19 @@ import java.util.ArrayList;
 
 public class pagerAdapter extends FragmentStatePagerAdapter
 {
-    ArrayList<String> pagetitle;
-    ArrayList<MusicListFragment> fragments;
-    MusicManager manager;
-
-    Context context;
-    public pagerAdapter(android.support.v4.app.FragmentManager fm, MusicManager musicManager)
+    MusicControl control;
+    int viewCount;
+    public pagerAdapter(android.support.v4.app.FragmentManager fm, MusicControl control, int viewCount)
     {
         super(fm);
-        this.manager = musicManager;
-        pagetitle = new ArrayList<String>();
-        pagetitle.add("노래");
-        pagetitle.add("아티스트");
-        pagetitle.add("앨범");
-        pagetitle.add("재생 목록");
+        this.control = control;
+        this.viewCount = viewCount;
     }
     @Override
     public android.support.v4.app.Fragment getItem(int position)
     {
         MusicListFragment fragment = new MusicListFragment();
-        fragment.setList(manager);
+        fragment.setList(control);
         fragment.setfragment(position);
         return fragment;
     }
@@ -43,11 +37,7 @@ public class pagerAdapter extends FragmentStatePagerAdapter
     @Override
     public int getCount()
     {
-        return 4;
+        return viewCount;
     }
-    public CharSequence getPageTitle(int position) {
-        return pagetitle.get(position);
-    }
-
 
 }

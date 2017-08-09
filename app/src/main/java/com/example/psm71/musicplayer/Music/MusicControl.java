@@ -21,13 +21,14 @@ public class MusicControl
     ArrayList<Music_info> musiclist;
     Intent Service;
     Context context;
-    public MusicControl(Context context, MusicManager manger)
+    MusicManager manager;
+    public MusicControl(Context context)
     {
         this.context = context;
-        manger = new MusicManager(context);
-        manger.FileSearch();
+        manager = new MusicManager(context);
+        manager.FileSearch();
         Service = new Intent(context,MusicPlay.class);
-        musiclist = manger.getList();
+        musiclist = manager.getList();
     }
     void setMode()
     {
@@ -41,5 +42,9 @@ public class MusicControl
     void Stop()
     {
 
+    }
+    public MusicManager getmanager()
+    {
+        return manager;
     }
 }

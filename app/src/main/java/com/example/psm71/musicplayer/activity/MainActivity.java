@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     Intent Service;
     public static MusicControl control;
     TabLayout tabLayout;
+    ArrayList<String> pagetitle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,22 +38,23 @@ public class MainActivity extends AppCompatActivity {
 
         final ViewPager pagerView =(ViewPager) findViewById(R.id.viewpaper);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        final MusicManager manager = new MusicManager(getApplicationContext());
-        manager.FileSearch();
-        pagerAdapter adapter = new pagerAdapter(getSupportFragmentManager(),manager);
+        final MusicControl control = new MusicControl(getApplicationContext());
+
+        tabLayout.addTab(tabLayout.newTab().setText("노래"));
+        tabLayout.addTab(tabLayout.newTab().setText("아티스트"));
+        tabLayout.addTab(tabLayout.newTab().setText("앨범"));
+        tabLayout.addTab(tabLayout.newTab().setText("재생목록"));
+
+        pagerAdapter adapter = new pagerAdapter(getSupportFragmentManager(),control,tabLayout.getTabCount());
         pagerView.setAdapter(adapter);
         pagerView.setCurrentItem(0);
         pagerView.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-
-        tabLayout.setupWithViewPager(pagerView);
-
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 pagerView.setCurrentItem(tab.getPosition());
             }
-
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
 
