@@ -18,17 +18,17 @@ public class MusicControl
                 //One: 한곡
                 //All: 전체
                 //AllLoop: 전체 반복
-    MusicManager manger;
     ArrayList<Music_info> musiclist;
     Intent Service;
     Context context;
+    MusicManager manager;
     public MusicControl(Context context)
     {
         this.context = context;
-        manger = new MusicManager(context);
-        manger.FileSearch();
+        manager = new MusicManager(context);
+        manager.FileSearch();
         Service = new Intent(context,MusicPlay.class);
-        musiclist = manger.getList();
+        musiclist = manager.getList();
     }
     void setMode()
     {
@@ -42,5 +42,9 @@ public class MusicControl
     void Stop()
     {
 
+    }
+    public MusicManager getmanager()
+    {
+        return manager;
     }
 }

@@ -1,45 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="70dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#EEEEEE"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
     android:alpha="33"
-    >
-    <com.example.psm71.musicplayer.widget.CircleImageView
-        android:layout_height="60dp"
-        android:layout_width="60dp"
-        android:src="@mipmap/ic_launcher"
-        android:id="@+id/music_cover"
-        app:civ_border_width="2dp"
-        app:civ_border_color="#FFFFFF"
-        android:layout_margin="5dp"
-        />
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <com.example.psm71.musicplayer.widget.CircleImageView
+            android:id="@+id/music_cover"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/ic_launcher"
+
+            app:civ_border_color="#EEEEEE"
+            app:civ_border_width="3dp" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginLeft="5dp">
+        android:layout_marginLeft="5dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/music_title"
             android:layout_width="match_parent"
             android:layout_height="26dp"
-            android:layout_marginTop="10dp"
-            android:singleLine="true"
+            android:layout_marginTop="5dp"
             android:ellipsize="end"
-            android:textSize="16dp"
-            android:text="제목" />
+            android:singleLine="true"
+            android:text="제목"
+            android:textColor="#000000"
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/music_artist"
             android:layout_width="match_parent"
             android:layout_height="20dp"
-            android:maxLines="1"
             android:ellipsize="end"
-            android:textSize="16dp"
-            android:text="아티스트" />
+            android:maxLines="1"
+            android:text="아티스트"
+            android:textSize="16dp" />
     </LinearLayout>
 
 </LinearLayout>
