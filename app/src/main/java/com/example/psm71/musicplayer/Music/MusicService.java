@@ -3,12 +3,12 @@ package com.example.psm71.musicplayer.Music;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Binder;
@@ -18,18 +18,15 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.NotificationCompat;
 import android.support.v4.media.session.MediaControllerCompat;
 import android.support.v4.media.session.MediaSessionCompat;
-import android.util.Log;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.Request;
 import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.target.SizeReadyCallback;
-import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.psm71.musicplayer.R;
 import com.example.psm71.musicplayer.activity.PlayerControllerActivity;
 import com.example.psm71.musicplayer.model.MediaType;
 import com.example.psm71.musicplayer.model.Music_info;
+import com.example.psm71.musicplayer.receiver.MediaButtonIntentReceiver;
 import com.example.psm71.musicplayer.utils.Config;
 
 import java.io.IOException;
@@ -157,9 +154,10 @@ public class MusicService extends Service implements Runnable, MediaPlayer.OnPre
     }
 
     private void initMediaSessions() {
-        PendingIntent buttonReceiverIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, new Intent(Intent.ACTION_MEDIA_BUTTON), PendingIntent.FLAG_UPDATE_CURRENT);
-
-        mSession = new MediaSessionCompat(getApplicationContext(), "simple player session", null, buttonReceiverIntent);
+        //PendingIntent buttonReceiverIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, new Intent(Intent.ACTION_MEDIA_BUTTON), PendingIntent.FLAG_UPDATE_CURRENT);
+        ComponentName mediaButtonReceiver = new ComponentName(getApplicationContext(), MediaButtonIntentReceiver.class);
+        //mSession = new MediaSessionCompat(getApplicationContext(), "simple player session", null, buttonReceiverIntent);
+        mSession = new MediaSessionCompat(getApplicationContext(), "simple", mediaButtonReceiver, null);
 
         try {
             mController = new MediaControllerCompat(getApplicationContext(), mSession.getSessionToken());

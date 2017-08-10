@@ -88,8 +88,7 @@ public class PlayerControllerActivity extends AppCompatActivity implements Runna
             int duration = musicList.get(position).getDuration(); //총 재생시간을 가져옴
             seekBar.setMax(duration);
             end_time_text.setText(stringForTime(duration));
-
-            thread.start();
+            //thread.start(); <=== 쓰레드 오류 남
         }
     };
 
