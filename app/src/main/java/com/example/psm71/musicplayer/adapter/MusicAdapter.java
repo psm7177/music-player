@@ -59,8 +59,8 @@ public class MusicAdapter extends BaseAdapter {
 
         titleView.setPaintFlags(titleView.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
         titleView.setText(data.getName());
-        artistView.setText(data.getSinger());
-        Glide.with(context).load(data.getAlbum()).into(AlumbView);
+        artistView.setText(data.getArtist());
+        Glide.with(context).load(data.getAlbum_img()).into(AlumbView);
 
         return convertView;
     }

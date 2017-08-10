@@ -1,7 +1,5 @@
 package com.example.psm71.musicplayer.adapter;
 
-import android.content.Context;
-import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,8 +43,8 @@ public class recyclerView extends RecyclerView.Adapter<recyclerView.ViewHolder>{
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         Music_info item = albumList.get(position);
         viewHolder.title.setText(item.getName());
-        viewHolder.artist.setText(item.getSinger());
-        Glide.with(viewHolder.view.getContext()).load(item.getAlbum()).into(viewHolder.img);
+        viewHolder.artist.setText(item.getArtist());
+        Glide.with(viewHolder.view.getContext()).load(item.getAlbum_img()).into(viewHolder.img);
         final int Position = position;
         viewHolder.view.setOnClickListener(new View.OnClickListener() {
             @Override

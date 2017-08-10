@@ -22,15 +22,14 @@ import com.example.psm71.musicplayer.Music.MusicService;
 import com.example.psm71.musicplayer.R;
 import com.example.psm71.musicplayer.model.MediaType;
 import com.example.psm71.musicplayer.model.Music_info;
-import com.example.psm71.musicplayer.utils.Config;
 import com.example.psm71.musicplayer.Music.MusicService.Music_Binder;
+import com.example.psm71.musicplayer.utils.Config;
 
 import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.Locale;
 
 import static com.example.psm71.musicplayer.Music.MusicService.ACTION_PLAY;
-import static com.example.psm71.musicplayer.Music.MusicService.ACTION_START_FOREGROUND;
 
 /**
  *

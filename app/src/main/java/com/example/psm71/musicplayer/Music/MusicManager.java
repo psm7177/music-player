@@ -57,9 +57,11 @@ public class MusicManager {
         String[] projection = {
                 MediaStore.Audio.Media._ID,
                 MediaStore.Audio.Media.DATA,
+                MediaStore.Audio.Media.ALBUM,
                 MediaStore.Audio.Media.ALBUM_ID,
                 MediaStore.Audio.Media.TITLE,
-                MediaStore.Audio.Media.ARTIST
+                MediaStore.Audio.Media.ARTIST,
+                MediaStore.Audio.Media.DURATION
         };
 
         Cursor cursor = context.getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
@@ -73,13 +75,14 @@ public class MusicManager {
 
             String path = Uri.withAppendedPath(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, "" + Music_ID).toString();
             String title = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE));
-            String album_url = ContentUris.withAppendedId(Uri.parse("content://media/external/audio/albumart"), Album_ID).toString();
-            String singer = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST));
+            String album = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM));
+            String album_img = ContentUris.withAppendedId(Uri.parse("content://media/external/audio/albumart"), Album_ID).toString();
+            String artist = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST));
 
-            Log.e(TAG, "path : " + path + "\n title : " + title + "\n singer : " + singer
-                    + "\n Album_url : " + album_url);
+            /*Log.e(TAG, "path : " + path + "\n title : " + title + "\n singer : " + singer
+                    + "\n Album_url : " + album_url);*/
 
-            MusicList.add(new Music_info(path, title, singer, album_url));
+            MusicList.add(new Music_info(path, title, artist, album, album_img, duration));
         }
     }
 
